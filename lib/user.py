@@ -10,7 +10,7 @@ class User:
         return self.__dict__ == other.__dict__
     
     def __repr__(self) -> str:
-        return f"User({self.id}, {self.email}, {self.password}, {self.name}, {self.username})"
+        return f"User({self.id},    {self.email}, {self.password}, {self.name}, {self.username})"
     
     def is_valid(self):
         if self.email == None or self.email == "":
