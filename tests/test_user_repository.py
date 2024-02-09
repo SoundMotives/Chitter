@@ -49,3 +49,12 @@ def test_update_a_user_password(db_connection):
         User(2, 'dad@hotmail.com', 'passass123', 'Dad', 'Daddy')]
 
 
+def test_deleting_user(db_connection):
+    db_connection.seed("seeds/seeds_users.sql")
+    repository = UserRepository(db_connection)
+    repository.delete(2)
+    users = repository.all()
+    assert users == [
+        User(1, 'dod@hotmail.com', 'passass', 'Dave', 'DoD')
+    ]
+    

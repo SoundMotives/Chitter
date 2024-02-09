@@ -46,8 +46,9 @@ class UserRepository:
   
 # Returns nothing
 
-    def delete(user):
-        pass
+    def delete(self, id):
+        self._connection.execute("DELETE from users * WHERE id = %s", [id])
+pass
     # Executes the SQL query:
     # 
 # DELETE FROM users WHERE id = %s, [user_id]
