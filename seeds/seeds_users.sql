@@ -6,8 +6,40 @@
 -- so we can start with a fresh state.
 -- (RESTART IDENTITY resets the primary key)
 
-TRUNCATE TABLE users RESTART IDENTITY; -- replace with your own table name.
-TRUNCATE TABLE posts RESTART IDENTITY; -- replace with your own table name.
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS posts CASCADE;  -- This drops the dependent foreign key constraint as well
+
+
+-- TRUNCATE TABLE posts CASCADE; -- This should drop dependent foreign key constraints
+-- TRUNCATE TABLE users CASCADE;
+
+-- -- Delete all rows from the dependent table first
+-- DELETE FROM posts;
+-- -- Delete all rows from the main table
+-- DELETE FROM users;
+
+-- Create the table without the foreign key first.
+-- CREATE SEQUENCE IF NOT EXISTS users_id_sequence;(NOT REQUIRED BECAUSE WE'RE USING SERIAL?)
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    email text,
+    password text,
+    name text,
+    username text
+);
+
+-- Create the table with the foreign key second.
+-- CREATE SEQUENCE IF NOT EXISTS posts_id_sequence; (NOT REQUIRED BECAUSE WE'RE USING SERIAL?)
+CREATE TABLE IF NOT EXISTS posts (
+    id SERIAL PRIMARY KEY,
+    content text,
+    time_post TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    -- The foreign key name is always {other_table_singular}_id
+    user_id int,
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+
 
 -- Below this line there should only be `INSERT` statements.
 -- Replace these statements with your own seed data.
