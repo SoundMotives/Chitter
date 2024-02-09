@@ -23,6 +23,4 @@ def test_user_validity():
     assert User(1, "email@email", "", "Emmy", "EmmyTheGreat").is_valid() == False
     assert User(1, "email@email", "securePass123", "", "EmmyTheGreat").is_valid() == False
     assert User(1, "email@email", "securePass123", "Emmy", "").is_valid() == False
-
-    
-
+ 
