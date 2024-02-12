@@ -11,10 +11,12 @@ from lib.user import User
 app = Flask(__name__)
 app.secret_key = 'mysecretkey123'
 
+# LANDING PAGE
 @app.route("/", methods=['GET'])
 def load_index_page():
     return render_template('index.html')
 
+# SIGN UP PAGE
 @app.route("/signup", methods=["GET", 'POST'])
 def signup():
     if request.method == "POST":
@@ -33,11 +35,7 @@ def signup():
     else:
         return render_template("signup.html")
 
-
-# @app.route("/signin", methods=['GET'])
-# def load_signin():
-#     return render_template("signin.html")
-
+# SIGN IN PAGE
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     if request.method == "POST":
@@ -54,6 +52,7 @@ def signin():
             print(f"app.py(55) Login successful. Session ID:{session['user_id']}")
             post = PostRepository(connection)
             posts = post.all()
+            posts.sort(key=lambda post:post.time_post, reverse=True)
             return render_template('home_auth.html', user=user.username, posts=posts)
         else:
             print("signin not successful")
@@ -61,7 +60,8 @@ def signin():
     else:
         print("signin is a get request")
         return render_template('signin.html')
-    
+
+# SIGN OUT PAGE
 @app.route("/signout", methods=["GET", "POST"])
 def signout():
     # Clear the user_id from the session
@@ -71,6 +71,7 @@ def signout():
     # Redirect to the root URL or any desired URL after logout
     return redirect('/')
 
+# POSTS PAGE
 @app.route("/home", methods=["GET", "POST"])
 def load_home():
     if request.method == "POST":
@@ -85,12 +86,14 @@ def load_home():
                 user = user_rep.find(user_id)
                 # user_id = user.id
 
-                post = Post(None, content, datetime.now(), user_id)
+                time_post = datetime.now()
+                post = Post(None, content, time_post, user_id)
                 print("post successfully created")
                 repository = PostRepository(connection)
                 repository.create(post)
                 print("post successfully added to database")
                 posts = repository.all()
+                posts.sort(key=lambda post:post.time_post, reverse=True)
                 print("posts successfully requests")
                 return render_template("home_auth.html", posts=posts, user=user.username)
             else:
@@ -99,27 +102,8 @@ def load_home():
     connection = get_flask_database_connection(app)
     repository = PostRepository(connection)
     posts = repository.all()
+    posts.sort(key=lambda post:post.time_post, reverse=True)
     return render_template("home.html", posts=posts)
-
-
-
-# GET /emoji
-# Returns a smiley face in HTML
-# Try it:
-#   ; open http://localhost:5001/emoji
-# @app.route('/emoji', methods=['GET'])
-# def get_emoji():
-#     # We use `render_template` to send the user the file `emoji.html`
-#     # But first, it gets processed to look for placeholders like {{ emoji }}
-#     # These placeholders are replaced with the values we pass in as arguments
-#     return render_template('emoji.html', emoji=':)')
-
-# This imports some more example routes for you to see how they work
-# You can delete these lines if you don't need them.
-from example_routes import apply_example_routes
-apply_example_routes(app)
-
-# == End Example Code ==
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database

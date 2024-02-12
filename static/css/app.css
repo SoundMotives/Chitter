@@ -1,0 +1,107 @@
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  color: #00acee; /* Twitter blue */
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+div {
+  margin-top: 20px; /* Add margin between the div elements */
+}
+
+a {
+  color: #1da1f2; /* Twitter link color */
+  text-decoration: none;
+}
+
+button {
+  background-color: #1da1f2;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 10px 20px; /* Adjust padding for better spacing */
+  margin-right: 10px; /* Add margin to the right of each button */
+}
+
+button:hover {
+  background-color: #1877f2; /* Darker shade on hover */
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+/* 
+.form-group {
+  max-width: 600px; 
+  margin: 0 auto;
+} */
+
+.thoughts-form input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Adjust the input width for larger screens if needed */
+@media (min-width: 768px) {
+  .thoughts-form input {
+    width: 50%; /* Adjust as needed */
+  }
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.post {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #e0e0e0;
+}
+
+.nav {
+  background-color: #333;
+  padding: 10px;
+  text-align: right;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}

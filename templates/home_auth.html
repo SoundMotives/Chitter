@@ -2,11 +2,15 @@
 <html lang="en">
   <head>
     <title>Chitter Landing Page</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/app.css') }}"
+    />
     <meta charset="utf-8" />
   </head>
   <body>
     <h1>Hello {{user}}.</h1>
-    <form action="/home" method="post">
+    <form action="/home" method="post" >
       <label for="post">Share your thoughts</label>
       <div>
         <input type="text" name="content" id="post" />
@@ -14,11 +18,18 @@
       <input type="submit" value="Post" />
     </form>
     <h2>Recent posts</h2>
-    {% for post in posts %}
-    <p>{{post.content}}</p>
-    <p>time: {{post.time_post}}</p>
-    {% endfor %}
-
-    <a href="/signout">Sign out</a>
+    <div class="card">
+      <div class="card-content">
+        {% for post in posts %}
+        <div class="post">
+        <p>{{post.content}}</p>
+        <p>time: {{ post.time_post.strftime("%Y-%m-%d %H:%M:%S") }}</p>
+      </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- <div class="nav"> -->
+    <a href="/signout" >Sign out</a>
+  <!-- </div> -->
   </body>
 </html>

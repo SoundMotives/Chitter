@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/app.css') }}"
+    />
     <title>Chitter Landing Page</title>
     <meta charset="utf-8" />
   </head>
@@ -14,10 +18,15 @@
       <input type="submit" value="Post" />
     </form> -->
     <h2>Recent posts</h2>
-    {% for post in posts %}
-    <p>{{post.content}}</p>
-    {% endfor %}
-
-    <a href="/">Landing page</a>
+    <div class="card">
+      <div class="card-content">
+        {% for post in posts %}
+        <div class="post">
+          <p>{{post.content}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <a href="/">Back to landing page</a>
   </body>
 </html>

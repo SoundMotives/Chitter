@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Post:
     def __init__(self, id, content, time_post, user_id):
         self.id = id
