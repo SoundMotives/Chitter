@@ -5,19 +5,20 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <h1>Home</h1>
-    <!-- <form action="/home" method="post">
+    <h1>Hello {{user}}.</h1>
+    <form action="/home" method="post">
       <label for="post">Share your thoughts</label>
       <div>
         <input type="text" name="content" id="post" />
       </div>
       <input type="submit" value="Post" />
-    </form> -->
+    </form>
     <h2>Recent posts</h2>
     {% for post in posts %}
     <p>{{post.content}}</p>
+    <p>time: {{post.time_post}}</p>
     {% endfor %}
 
-    <a href="/">Landing page</a>
+    <a href="/signout">Sign out</a>
   </body>
 </html>

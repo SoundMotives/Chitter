@@ -24,6 +24,12 @@ def test_find_for_id_2(db_connection):
     user = repository.find(2)
     assert user == User(2, 'dad@hotmail.com', 'passass123', 'Dad', 'Daddy')
 
+def test_find_for_username(db_connection):
+    db_connection.seed("seeds/seeds_users.sql")
+    repository = UserRepository(db_connection)
+    user = repository.find_by_username("Daddy")
+    assert user == User(2, 'dad@hotmail.com', 'passass123', 'Dad', 'Daddy')
+
 def test_create_a_user(db_connection):
     db_connection.seed("seeds/seeds_users.sql")
     repository = UserRepository(db_connection)

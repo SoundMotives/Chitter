@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS posts (
     id SERIAL PRIMARY KEY,
     content text,
-    time_post TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    time_post text,
     -- The foreign key name is always {other_table_singular}_id
     user_id int,
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
@@ -47,5 +47,5 @@ CREATE TABLE IF NOT EXISTS posts (
 INSERT INTO users (email, password, name, username) VALUES ('dod@hotmail.com', 'passass', 'Dave', 'DoD');
 INSERT INTO users (email, password, name, username) VALUES ('dad@hotmail.com', 'passass123', 'Dad', 'Daddy');   
 
-INSERT INTO posts (content, user_id) VALUES ('Just posting something for lols', 1);
-INSERT INTO posts (content, user_id) VALUES ('This is my first post!', 2);   
+INSERT INTO posts (content, time_post, user_id) VALUES ('Just posting something for lols', '2024-02-02 00:00:00', 1);
+INSERT INTO posts (content, time_post, user_id) VALUES ('This is my first post!','2024-02-02 00:00:02', 2);   

@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Sign Up</h1>
-    <form action="/signup" method="post">
+
       <!-- We check to see if there are any errors from a previous submission -->
       {% if errors %}
       <!-- If so, we show them. -->
@@ -28,7 +28,7 @@
             <label for="username">Username</label>
             <input type="text" name="username" id="username">
           </p> -->
-
+      <form action="/signup" method="post">
       {% set fields = ['email', 'password', 'name', 'username'] %} 
       {% for field in fields %}
       <p>
