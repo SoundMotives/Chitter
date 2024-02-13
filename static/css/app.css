@@ -3,24 +3,39 @@ body {
   color: #333;
   text-align: center;
   font-family: "Roboto", sans-serif;
+  margin: 10px;
 }
 
-h1,
-h2,
-h3 {
-  color: #00acee; /* Twitter blue */
+/* .div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+} */
+
+div {
+  /* margin: 30px; Add margin between the div elements */
+}
+
+
+.container {
+  max-width: 600px;
+  margin: 75px auto;
+  margin-bottom: 50px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+h1, h2, h3 {
+  color: #00acee;
 }
 
 h1 {
-  margin-top: 50px;
+  margin: 20px; /* Add margin to the top of the heading */
 }
 
-div {
-  margin-top: 20px; /* Add margin between the div elements */
-}
 
 a {
-  color: #1da1f2; /* Twitter link color */
+  color: #1da1f2;
   text-decoration: none;
 }
 
@@ -28,27 +43,26 @@ button {
   background-color: #1da1f2;
   color: #fff;
   padding: 10px 20px;
+  margin: 10;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  padding: 10px 20px; /* Adjust padding for better spacing */
-  margin-right: 10px; /* Add margin to the right of each button */
+}
+button:hover {
+  background-color: #1877f2;
 }
 
-button:hover {
-  background-color: #1877f2; /* Darker shade on hover */
+.button-space {
+  padding: 20px;
+
 }
 
 form {
   max-width: 400px;
   margin: 0 auto;
+  padding: 10px
 }
-/* 
-.form-group {
-  max-width: 600px; 
-  margin: 0 auto;
-} */
 
 .thoughts-form input {
   width: 100%;
@@ -57,37 +71,30 @@ form {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-}
 
-/* Adjust the input width for larger screens if needed */
-@media (min-width: 768px) {
-  .thoughts-form input {
-    width: 50%; /* Adjust as needed */
-  }
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
 }
 
 .card {
-  width: 50%;
-  margin: 0 auto;
-  background-color: #f0f0f0;
-  padding: 15px;
+  width: 75%;
+  /* padding: 15px; */
+  /* background-color: #f0f0f0; */
   margin-bottom: 20px;
+  margin: 0 auto; /* Center the card horizontally */
 }
 
 .post {
   border: 1px solid #ccc;
   padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
-  background-color: #e0e0e0;
+  /* background-color: #b3bfe0; */
+}
+
+#post {
+  padding: 15px;
+  height: 60px;
+  word-wrap: break-word; /* Allow long words to wrap */
+  overflow: auto; /* Enable scrollbar if content exceeds the height */
 }
 
 .nav {
@@ -105,3 +112,40 @@ input {
 .nav a:hover {
   text-decoration: underline;
 }
+
+
+
+.signup-form {
+  max-width: 400px;
+  margin: 20;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* button {
+  background-color: #1da1f2;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1877f2;
+} */

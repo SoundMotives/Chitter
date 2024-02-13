@@ -22,6 +22,12 @@ class UserRepository:
         rows = self._connection.execute("SELECT * FROM users WHERE username = %s", [username])
         row = rows[0]
         return User(row["id"], row["email"], row["password"], row["name"], row["username"])
+    
+    def find_username_by_user_id(self, user_id):
+        id = user_id
+        rows = self._connection.execute("SELECT username FROM users WHERE id = %s", [id])
+        username = rows[0]
+        return username
        
     def find_by_email(self, email):
         rows = self._connection.execute("SELECT * FROM users WHERE email = %s", [email])
@@ -32,7 +38,8 @@ class UserRepository:
         # password = user.password
         # binary_password = password.encode("utf-8")
         # hashed_password = hashlib.sha256(binary_password).hexdigest()
-        rows = self._connection.execute("INSERT INTO users (email, password, name, username) VALUES (%s, %s, %s, %s) RETURNING id", [user.email, user.password, """hashed_password""", user.name, user.username])
+        """hashed_password"""
+        rows = self._connection.execute("INSERT INTO users (email, password, name, username) VALUES (%s, %s, %s, %s) RETURNING id", [user.email, user.password, user.name, user.username])
         row = rows[0]
         user.id = row["id"] 
         return user 

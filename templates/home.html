@@ -9,7 +9,8 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <h1>Home</h1>
+    <!-- <div class="container"> -->
+    <!-- <h1>Home</h1> -->
     <!-- <form action="/home" method="post">
       <label for="post">Share your thoughts</label>
       <div>
@@ -17,7 +18,9 @@
       </div>
       <input type="submit" value="Post" />
     </form> -->
-    <h2>Recent posts</h2>
+    <div class="container">
+    <h1>Recent posts</h1>
+    <h2>To make posts of your own, login.</h2>
     <div class="card">
       <div class="card-content">
         {% for post in posts %}
@@ -28,5 +31,7 @@
       </div>
     </div>
     <a href="/">Back to landing page</a>
+  </div>
+<!-- </div> -->
   </body>
 </html>

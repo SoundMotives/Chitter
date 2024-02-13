@@ -53,7 +53,7 @@ def signin():
             post = PostRepository(connection)
             posts = post.all()
             posts.sort(key=lambda post:post.time_post, reverse=True)
-            return render_template('home_auth.html', user=user.username, posts=posts)
+            return render_template('home_auth.html', user=user.username, user_repository=user_repository, posts=posts)
         else:
             print("signin not successful")
             return render_template('signin.html', errors="Username and password did not match")
@@ -81,9 +81,9 @@ def load_home():
                 content = request.form.get("content")
                 user_id = session["user_id"]
                 # username = request.form.get("username")
-                user_rep= UserRepository(connection)
+                user_repository= UserRepository(connection)
 
-                user = user_rep.find(user_id)
+                logged_user = user_repository.find(user_id)
                 # user_id = user.id
 
                 time_post = datetime.now()
@@ -93,17 +93,18 @@ def load_home():
                 repository.create(post)
                 print("post successfully added to database")
                 posts = repository.all()
-                posts.sort(key=lambda post:post.time_post, reverse=True)
+                posts.sort(key=lambda post:post.time_post, reverse=True)   
                 print("posts successfully requests")
-                return render_template("home_auth.html", posts=posts, user=user.username)
+                return render_template("home_auth.html", posts=posts, user_repository=user_repository, user=logged_user.username)
             else:
                 return render_template("index.html")
     
     connection = get_flask_database_connection(app)
     repository = PostRepository(connection)
+    user_repository = UserRepository(connection)
     posts = repository.all()
     posts.sort(key=lambda post:post.time_post, reverse=True)
-    return render_template("home.html", posts=posts)
+    return render_template("home.html", posts=posts, user_repository=user_repository, user=logged_user.username)
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database

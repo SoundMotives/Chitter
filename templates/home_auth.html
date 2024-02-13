@@ -9,27 +9,32 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <h1>Hello {{user}}.</h1>
-    <form action="/home" method="post" >
-      <label for="post">Share your thoughts</label>
-      <div>
-        <input type="text" name="content" id="post" />
+    <div class="container">
+      <h1>Hello {{user}}.</h1>
+      <form action="/home" method="post" class="thoughts-form">
+        <label for="post">What's on your mind?</label>
+        <div>
+          <input type="text" name="content" id="post" />
+        </div>
+        <button type="submit">Post</button>
+      </form>
+      <h2>Recent posts</h2>
+      <div class="card">
+        <div class="card-content">
+          {% for post in posts %}
+          <div class="post">
+            <p>
+              {{user_repository.find_username_by_user_id(post.user_id)['username']}}
+              says "{{post.content}}"
+            </p>
+            <p>time: {{ post.time_post.strftime("%H:%M, %d %B %Y")}}</p>
+          </div>
+          {% endfor %}
+        </div>
       </div>
-      <input type="submit" value="Post" />
-    </form>
-    <h2>Recent posts</h2>
-    <div class="card">
-      <div class="card-content">
-        {% for post in posts %}
-        <div class="post">
-        <p>{{post.content}}</p>
-        <p>time: {{ post.time_post.strftime("%Y-%m-%d %H:%M:%S") }}</p>
-      </div>
-        {% endfor %}
-      </div>
+      <!-- <div class="nav"> -->
+      <a href="/signout">Sign out</a>
+      <!-- </div> -->
     </div>
-    <!-- <div class="nav"> -->
-    <a href="/signout" >Sign out</a>
-  <!-- </div> -->
   </body>
 </html>

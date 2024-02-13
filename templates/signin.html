@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
   </head>
   <body>
+    <div class="container">
     <h1>Sign In</h1>
     <form action="/signin" method="post">
         <!-- We check to see if there are any errors from a previous submission -->
@@ -22,9 +23,10 @@
         </p>
         {% endfor %}
         <p>
-          <input type="submit" value="Sign in" />
+          <button type="submit">Sign in</button> 
         </p>
       </form>
       <a href="/">Back to landing page</a>
+    </div>
   </body>
 </html>
