@@ -1,20 +1,17 @@
 body {
   background-color: #f5f5f5;
+  
+  #495867
   color: #333;
   text-align: center;
   font-family: "Roboto", sans-serif;
-  margin: 10px;
+  /* margin: 10px; */
+  /* display: flex; */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  min-height: 100vh; /* Ensure full viewport height */
+  min-width: 600px; /* Minimum width for the body */
 }
-
-/* .div {
-  margin-top: 20px;
-  margin-bottom: 20px;
-} */
-
-div {
-  /* margin: 30px; Add margin between the div elements */
-}
-
 
 .container {
   max-width: 600px;
@@ -25,7 +22,9 @@ div {
   background-color: #fff;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #00acee;
 }
 
@@ -33,9 +32,9 @@ h1 {
   margin: 20px; /* Add margin to the top of the heading */
 }
 
-
 a {
   color: #1da1f2;
+  padding: 20px;
   text-decoration: none;
 }
 
@@ -55,13 +54,12 @@ button:hover {
 
 .button-space {
   padding: 20px;
-
 }
 
 form {
   max-width: 400px;
   margin: 0 auto;
-  padding: 10px
+  padding: 10px;
 }
 
 .thoughts-form input {
@@ -71,7 +69,6 @@ form {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-
 }
 
 .card {
@@ -113,8 +110,6 @@ form {
   text-decoration: underline;
 }
 
-
-
 .signup-form {
   max-width: 400px;
   margin: 20;
@@ -135,17 +130,3 @@ input {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
-
-/* button {
-  background-color: #1da1f2;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #1877f2;
-} */

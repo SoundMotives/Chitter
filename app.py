@@ -82,7 +82,6 @@ def load_home():
                 user_id = session["user_id"]
                 # username = request.form.get("username")
                 user_repository= UserRepository(connection)
-
                 logged_user = user_repository.find(user_id)
                 # user_id = user.id
 
@@ -104,7 +103,8 @@ def load_home():
     user_repository = UserRepository(connection)
     posts = repository.all()
     posts.sort(key=lambda post:post.time_post, reverse=True)
-    return render_template("home.html", posts=posts, user_repository=user_repository, user=logged_user.username)
+    return render_template("home.html", posts=posts, user_repository=user_repository)
+# user=logged_user.username
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database

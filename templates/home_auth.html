@@ -10,13 +10,15 @@
   </head>
   <body>
     <div class="container">
+      <img src="static/chitter_logo.png" width="300" height="200"></img>
       <h1>Hello {{user}}.</h1>
       <form action="/home" method="post" class="thoughts-form">
         <label for="post">What's on your mind?</label>
         <div>
           <input type="text" name="content" id="post" />
+          <button type="submit">Post</button>
         </div>
-        <button type="submit">Post</button>
+
       </form>
       <h2>Recent posts</h2>
       <div class="card">

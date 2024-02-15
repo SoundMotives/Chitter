@@ -9,6 +9,7 @@
     <meta charset="utf-8" />
   </head>
   <body>
+
     <!-- <div class="container"> -->
     <!-- <h1>Home</h1> -->
     <!-- <form action="/home" method="post">
@@ -19,13 +20,18 @@
       <input type="submit" value="Post" />
     </form> -->
     <div class="container">
+      <img src="static/chitter_logo.png" width="300" height="200"></img>
     <h1>Recent posts</h1>
-    <h2>To make posts of your own, login.</h2>
+    <h2>You're currently a guest. To make posts of your own, login.</h2>
     <div class="card">
       <div class="card-content">
         {% for post in posts %}
         <div class="post">
-          <p>{{post.content}}</p>
+          <p>
+            {{user_repository.find_username_by_user_id(post.user_id)['username']}}
+            says "{{post.content}}"
+          </p>
+          <p>time: {{ post.time_post.strftime("%H:%M, %d %B %Y")}}</p>
         </div>
         {% endfor %}
       </div>
