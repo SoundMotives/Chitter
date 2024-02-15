@@ -1,7 +1,5 @@
 body {
   background-color: #f5f5f5;
-  
-  #495867
   color: #333;
   text-align: center;
   font-family: "Roboto", sans-serif;
@@ -10,7 +8,7 @@ body {
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
   min-height: 100vh; /* Ensure full viewport height */
-  min-width: 600px; /* Minimum width for the body */
+  min-width: 600px; /* Minimum width for the body */  
 }
 
 .container {
@@ -22,9 +20,7 @@ body {
   background-color: #fff;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   color: #00acee;
 }
 
@@ -54,12 +50,13 @@ button:hover {
 
 .button-space {
   padding: 20px;
+
 }
 
 form {
   max-width: 400px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 10px
 }
 
 .thoughts-form input {
@@ -69,6 +66,7 @@ form {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+
 }
 
 .card {
