@@ -44,5 +44,4 @@ This project includes hashed passwords and use of session authentication.
 # Run the app
 ; python app.py
 # Now visit http://localhost:5001/ in your browser
-
-```shell
+```
