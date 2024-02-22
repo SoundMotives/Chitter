@@ -1,13 +1,13 @@
 # Chitter Twitter Clone
 
-As part of reviewing [Makers' Web Applications In Python](https://github.com/makersacademy/web-applications-in-python/) this is the Chitter challenge in 'Phase 6'. This project includes hashed passwords and use of session authentication. 
+As part of reviewing [Makers' Web Applications In Python](https://github.com/makersacademy/web-applications-in-python/) this is the Chitter challenge in 'Phase 6'. 
 
-Once the project is intalled, as a user, you can:
+Once installed, as a user on Chitter, you can:
 - browse posts without signing in (but not post!)
 - Sign up to have your own account, allowing you to post yourself
 - Login and log out
 
-Note: for there to be any previous posts, ensure thst you run seed_dev_database.py as outlined below.
+This project includes hashed passwords and use of session authentication. 
 
 ## Setup
 
