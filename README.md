@@ -28,7 +28,6 @@ This project includes hashed passwords and use of session authentication.
 # Activate the virtual environment
 ; pipenv shell
 
-
 # Install the virtual browser we will use for testing
 ; playwright install
 
