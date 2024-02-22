@@ -14,7 +14,7 @@ Note: for there to be any previous posts, ensure thst you run seed_dev_database.
 ```shell
 
 # Clone the repository to your local machine
-; [git clone git@github.com:makersacademy/web-applications-in-python-project-starter-html.git](https://github.com/SoundMotives/Chitter.git) YOUR_PROJECT_NAME
+; git clone https://github.com/SoundMotives/Chitter.git YOUR_PROJECT_NAME
 
 # Enter the directory
 ; cd YOUR_PROJECT_NAME
